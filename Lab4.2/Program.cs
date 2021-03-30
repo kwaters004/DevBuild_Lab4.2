@@ -5,9 +5,6 @@ using System.Threading;
 
 namespace Lab4._2
 {
-
-
-
     public class Movie
     {
         // only code within this Movie class will be able to access the title and category
@@ -252,7 +249,6 @@ namespace Lab4._2
             // The user can enter any of the following categories to display the films in the list that match the category
             // Categories: animated, drama, horror, science fiction, comedy, fantasy
 
-
             List<Movie> movieList = new List<Movie>
             {
                 new Movie("Harry Potter and the Sorcerer's Stone", "Fantasy", 152, 2001, 64),
@@ -272,43 +268,10 @@ namespace Lab4._2
                 new Movie("Superbad", "Comedy", 113, 2007, 76),
                 new Movie("Hot Fuzz", "Comedy", 121, 2007, 81),
                 new Movie("The Hangover", "Comedy", 100, 2009, 73),
-
+                new Movie("Anchorman: The Legend of Ron Burgundy", "Comedy", 94, 2004, 94)
             };
 
-
-
             Console.WriteLine("Welcome to the Movie List Application!\n");
-
-            //Movie movie1 = new Movie("Harry Potter and the Sorcerer's Stone", "Fantasy");
-            //Movie movie2 = new Movie("Harry Potter and the Chamber of Secrets", "Fantasy");
-            //Movie movie3 = new Movie("Harry Potter and the Prisoner of Azkaban", "Fantasy");
-            //Movie movie4 = new Movie("Interstellar", "Science Fiction");
-            //Movie movie5 = new Movie("Step Brothers", "Comedy");
-            //Movie movie6 = new Movie("Shawshank Redemption", "Drama");
-            //Movie movie7 = new Movie("Saw", "Horror");
-            //Movie movie8 = new Movie("The Lion King", "Animated");
-            //Movie movie9 = new Movie("The Incredibles", "Animated");
-            //Movie movie10 = new Movie("Citizen Kane", "Drama");
-
-            // this only works, when the "Title" variable is set to "public"
-            // movie1.Title = "Harry Potter and the Sorcerer's Stone";
-
-            //movieList.Add(movie1);
-            //movieList.Add(movie2);
-            //movieList.Add(movie3);
-            //movieList.Add(movie4);
-            //movieList.Add(movie5);
-            //movieList.Add(movie6);
-            //movieList.Add(movie7);
-            //movieList.Add(movie8);
-            //movieList.Add(movie9);
-            //movieList.Add(movie10);
-
-
-            //Console.WriteLine(movieList[0].category);
-
-            movieList.Add(new Movie("Anchorman: The Legend of Ron Burgundy", "Comedy", 94, 2004, 94));
-
             List<string> catList = putCatsInList(movieList);
 
             bool done = false;
@@ -326,22 +289,17 @@ namespace Lab4._2
                     Console.WriteLine($"\nThere are {movieList.Count} movies in our collection.");
                     Console.Write("What category are you interested in?:  ");
                     string userCat = Console.ReadLine();
-                    // this is to check if the user category has a space
 
                     userCat = UpdateUserCat(userCat, catList);
-
                     if (catList.Contains(userCat))
                     {
                         valid = true;
-
-                        PrintOutAll(userCat, movieList);
-                        
+                        PrintOutAll(userCat, movieList);                        
                     }
                     else
                     {
                         Console.Write("Ivalid category. Try again in...");
                         Thread.Sleep(1000);
-                        //Console.Write("Clearing in... ");
                         for (int i = 3; i >= 1; i--)
                         {
                             Console.Write($"{i} ");
